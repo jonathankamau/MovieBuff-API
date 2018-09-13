@@ -1,22 +1,13 @@
 import os
-import unittest
-import coverage
 
-from flask_script import Manager, Shell, prompt_bool
-from flask_migrate import Migrate, MigrateCommand
+from flask_script import Manager
+from flask_migrate import Migrate
+from app import create_app
 
-manager = Manager(app)
-migrate = Migrate(app, db)
+movie_app = create_app(environment=os.environ.get('APP_SETTINGS'))
+manager = Manager(movie_app)
+migrate = Migrate(movie_app)
 
-@manager.command
-def drop_database():
-    """Drop all database tables."""
-    if prompt_bool("Are you sure you want to delete your database data"):
-        try:
-            db.drop_all()
-            print("Dropped all tables successfully.")
-        except Exception:
-            print("Failed, make sure your database server is running!")
 
 if __name__ == "__main__":
     manager.run()
