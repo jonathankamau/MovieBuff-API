@@ -5,6 +5,7 @@
 #### How should this be manually tested?
 
 #### What are the relevant pivotal tracker stories?
+[#{ID}](https://www.pivotaltracker.com/story/show/{ID})
 
 #### Any background context you want to add?
 
