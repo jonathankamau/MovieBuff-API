@@ -1,6 +1,8 @@
 from flask import Flask, jsonify
 from flask_cors import CORS
-from api.mongo import mongo
+from flask_restplus import Api
+from api.endpoints.create_account import CreateAccount
+from api.models import db
 
 try:
     from .config import env_configuration
@@ -17,10 +19,15 @@ def create_app(environment):
     """
     app = Flask(__name__)
     app.config.from_object(env_configuration[environment])
-    mongo.init_app(app)
+    db.init_app(app)
 
+    api = Api(
+        app=app,
+        default='Api')
     # enable cross origin resource sharing
     CORS(app)
+
+    api.add_resource(CreateAccount, "/api/user", endpoint="user")
 
     # handle default 404 exceptions
     @app.errorhandler(404)
