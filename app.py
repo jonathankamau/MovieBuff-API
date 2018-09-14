@@ -1,8 +1,8 @@
 from flask import Flask, jsonify
 from flask_cors import CORS
 from flask_restplus import Api
-from api.endpoints.create_account import CreateAccount
-from api.models import db
+from api.endpoints import CreateAccount, UserLogin
+from api.utils.models import db
 
 try:
     from .config import env_configuration
@@ -27,7 +27,8 @@ def create_app(environment):
     # enable cross origin resource sharing
     CORS(app)
 
-    api.add_resource(CreateAccount, "/api/user", endpoint="user")
+    api.add_resource(CreateAccount, "/api/user/register", endpoint="register")
+    api.add_resource(UserLogin, "/api/user/login", endpoint="login")
 
     # handle default 404 exceptions
     @app.errorhandler(404)

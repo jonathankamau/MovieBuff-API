@@ -36,4 +36,6 @@ class UserLoginSchema(Schema):
                              validate=[validate.Length(min=8)],
                              error_messages={'required': 'password cannot be blank'})
 
+
 reg_schema = RegisterUserSchema()
+login_schema = UserLoginSchema()
