@@ -1,0 +1,16 @@
+import os
+import requests
+from flask import jsonify, request
+from flask_restplus import Resource
+
+
+class MovieSearch(Resource):
+
+    def get(self):
+        movie_name = request.args.get('movie_name', type=str)
+
+        if not movie_name:
+            return {'error': 'Movie name has not been given!'}
+        else:
+            movie_details = requests.get('https://api.themoviedb.org/3/search/movie?api_key='+os.getenv('MOVIES_API_KEY')+'&query='+movie_name)
+            return movie_details.json()

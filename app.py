@@ -1,7 +1,7 @@
 from flask import Flask, jsonify
 from flask_cors import CORS
 from flask_restplus import Api
-from api.endpoints import CreateAccount, UserLogin
+from api.endpoints import CreateAccount, UserLogin, MovieSearch
 from api.utils.models import db
 
 try:
@@ -29,6 +29,7 @@ def create_app(environment):
 
     api.add_resource(CreateAccount, "/api/user/register", endpoint="register")
     api.add_resource(UserLogin, "/api/user/login", endpoint="login")
+    api.add_resource(MovieSearch, "/api/search", endpoint="search")
 
     # handle default 404 exceptions
     @app.errorhandler(404)
