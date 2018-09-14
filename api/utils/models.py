@@ -24,6 +24,4 @@ class User(db.Document):
 
     def generate_token(self, expiration=6000):
         serial = Serializer(os.getenv('SECRET'), expires_in=expiration)
-        return "Bearer "+serial.dumps({'id': self.password}).decode('utf-8')
-
-    
+        return "Bearer "+serial.dumps({'id': self.password}).decode('utf-8')   
