@@ -13,7 +13,7 @@ class Development():
 
     DEBUG = True
     DEVELOPMENT = True
-    MONGO_DBNAME = os.environ.get('MONGO_DBNAME')
+    MONGOALCHEMY_DATABASE = os.environ.get('MONGO_DBNAME')
     MONGO_URI = os.environ.get('MONGO_URI')
 
 
