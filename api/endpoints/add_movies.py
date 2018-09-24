@@ -1,20 +1,20 @@
 import json
 import requests
 from datetime import datetime
-from flask import jsonify, request
+from flask import g, jsonify, request
 from flask_restplus import Resource
 
-from api.utils.models import FavouriteMovies
-from api.utils.cache import get_data_from_cache
+from api.utils import FavouriteMovies, get_data_from_cache, token_required
 
 
 class AddMovie(Resource):
 
+    @token_required
     def get(self):
 
-        print(get_data_from_cache())
         return get_data_from_cache()
 
+    @token_required
     def post(self):
         movie_selection = request.get_json()
         print('original', get_data_from_cache())

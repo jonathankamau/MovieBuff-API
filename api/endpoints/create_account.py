@@ -3,8 +3,7 @@ from flask_restplus import Resource
 from werkzeug.security import generate_password_hash
 
 
-from api.utils.models import User
-from api.utils.schemas import reg_schema
+from api.utils import User, reg_schema
 
 class CreateAccount(Resource):
 
