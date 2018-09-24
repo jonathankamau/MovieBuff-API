@@ -2,8 +2,7 @@ from flask import jsonify, request
 from flask_restplus import Resource
 from werkzeug.security import check_password_hash
 
-from api.utils.models import User
-from api.utils.schemas import login_schema
+from api.utils import User, login_schema
 
 class UserLogin(Resource):
 

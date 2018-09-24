@@ -27,7 +27,19 @@ class User(db.Document):
 
     def generate_token(self, expiration=6000):
         serial = Serializer(os.getenv('SECRET'), expires_in=expiration)
-        return "Bearer "+serial.dumps({'id': self.password}).decode('utf-8')   
+        return serial.dumps({'id': self.password}).decode('utf-8')   
+
+    def verify_auth_token(self, token):
+        serial = Serializer(os.getenv('SECRET'))
+        try:
+            data = serial.loads(token)
+
+        except SignatureExpired:
+            return "Expired Token!" # valid token, but expired
+        except BadSignature:
+            return "Invalid Token!" # invalid token
+        user = User.query.get(data['id'])
+        return user
 
 
 class FavouriteMovies(db.Document):
