@@ -17,6 +17,7 @@ class UserLogin(Resource):
             if check_password_hash(user.password, user_details['password']):
                 token = user.generate_token()
                 # gives message response
+
                 return {'token': token,
                             'message': "You have logged in successfully"}, 200
             else:
