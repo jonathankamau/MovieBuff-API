@@ -17,6 +17,7 @@ class ViewFavouritesList(Resource):
 
         for movie in favourite_movies:
             favourite_list.append({
+                "id": movie.movie_id,
                 "movie_title": movie.movie_title,
                 "description": movie.overview,
                 "popularity": movie.popularity
