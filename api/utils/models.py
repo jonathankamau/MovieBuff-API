@@ -41,9 +41,8 @@ class User(db.Document):
             return "Expired Token!"  # valid token, but expired
         except BadSignature:
             return "Invalid Token!"  # invalid token
-        print(data)
+
         user = User.query.get_user(data['user_id']).first()
-        print(user.lastname)
         return user
 
 
