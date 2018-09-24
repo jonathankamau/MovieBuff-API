@@ -4,8 +4,8 @@ from marshmallow import Schema, fields, validate
 class RegisterUserSchema(Schema):
     """ schema for register user resource"""
     first_name = fields.String(required=True, load_only=True,
-                              validate=[validate.Length(min=1, max=64),
-                                        validate.Regexp(r"[a-zA-Z]*$",
+                               validate=[validate.Length(min=1, max=64),
+                                         validate.Regexp(r"[a-zA-Z]*$",
                                                         error=("Firstname must be "
                                                                "made up of letters!"))],
                               error_messages={'required': 'firstname cannot be blank'})
