@@ -12,7 +12,6 @@ class UserLogin(Resource):
         result, errors = login_schema.load(user_details)
 
         if errors:
-            print('I am here')
             return jsonify(errors)
         else:
             user = User.query.get_username(result['username']).first()
@@ -22,5 +21,4 @@ class UserLogin(Resource):
                 return {'token': token,
                             'message': "You have logged in successfully"}, 200
             else:
-                print(user.password)
                 return {'error': 'invalid username or password!'}, 400
