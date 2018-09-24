@@ -2,7 +2,8 @@ from flask import Flask, jsonify
 from flask_cors import CORS
 from flask_restplus import Api
 from api.endpoints import (CreateAccount, UserLogin, MovieSearch, 
-                           AddMovie, ViewFavouritesList, DeleteMovie)
+                           AddMovie, ViewFavouritesList, DeleteMovie, 
+                           UpdateUserDetails)
 from api.utils.models import db
 
 
@@ -36,6 +37,7 @@ def create_app(environment):
     api.add_resource(ViewFavouritesList,
                      "/api/movie/favourites", endpoint="favourites")
     api.add_resource(DeleteMovie, "/api/movie/delete", endpoint="delete")
+    api.add_resource(UpdateUserDetails, "/api/user/update", endpoint="update")
 
     # handle default 404 exceptions
     @app.errorhandler(404)
