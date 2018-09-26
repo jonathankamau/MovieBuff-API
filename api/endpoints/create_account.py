@@ -17,6 +17,7 @@ class CreateAccount(Resource):
             return jsonify(errors)
         else:
             user = User.query.get_username(result['username']).first()
+
             if user:
                 return {"message": "User already exists!"}, 400
             else:
@@ -28,4 +29,4 @@ class CreateAccount(Resource):
                                                     result['password']))
 
                 new_user.save()
-                return {"response": "user created successfully!"}, 200
+                return {"response": "user created successfully!"}, 201
