@@ -17,6 +17,17 @@ class Development():
     MONGOALCHEMY_CONNECTION_STRING = os.environ.get('MONGO_URI')
 
 
+class Testing():
+    """Model Testing environment config object."""
+
+    DEBUG = True
+    TESTING = True
+    MONGOALCHEMY_DATABASE = os.environ.get('TEST_MONGO_DBNAME')
+    MONGOALCHEMY_CONNECTION_STRING = os.environ.get('TEST_MONGO_URI')
+
+
 env_configuration = {
-    'development': Development
+    'development': Development,
+    'testing': Testing
+
 }
