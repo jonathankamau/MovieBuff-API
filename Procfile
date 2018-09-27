@@ -1,1 +1,1 @@
-web: gunicorn manage:setup
+web: gunicorn manage:api
