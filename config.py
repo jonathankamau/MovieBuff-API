@@ -26,6 +26,24 @@ class Testing():
     MONGOALCHEMY_CONNECTION_STRING = os.environ.get('TEST_MONGO_URI')
 
 
+class Staging():
+    """Model Development enviroment config object."""
+
+    DEBUG = True
+    STAGING = True
+    MONGOALCHEMY_DATABASE = os.environ.get('MONGO_DBNAME')
+    MONGOALCHEMY_CONNECTION_STRING = os.environ.get('MONGO_URI')
+
+
+class Production():
+    """Model Development enviroment config object."""
+
+    DEBUG = True
+    PRODUCTION = True
+    MONGOALCHEMY_DATABASE = os.environ.get('MONGO_DBNAME')
+    MONGOALCHEMY_CONNECTION_STRING = os.environ.get('MONGO_URI')
+
+
 env_configuration = {
     'development': Development,
     'testing': Testing
