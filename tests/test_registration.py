@@ -16,4 +16,4 @@ class TestRegistration(BaseTestCase):
         self.assertEqual('user created successfully!',
                          response_message['response'],
                          msg="Not registered!"
-                        )
+                         )
