@@ -13,6 +13,7 @@ Flask-MongoAlchemy==0.7.2
 flask-restplus==0.11.0
 Flask-Script==2.0.6
 Flask-SQLAlchemy==2.3.2
+gunicorn==19.9.0
 idna==2.7
 isort==4.3.4
 itsdangerous==0.24
@@ -23,11 +24,13 @@ Mako==1.0.7
 MarkupSafe==1.0
 marshmallow==2.15.4
 mccabe==0.6.1
+mongo==0.2.0
 MongoAlchemy==0.19
 more-itertools==4.3.0
 pluggy==0.7.1
 py==1.6.0
-pymongo==2.9
+pylint==2.1.1
+pymongo==2.8.1
 pytest==3.8.1
 python-dateutil==2.7.3
 python-dotenv==0.9.1
