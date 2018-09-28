@@ -1,6 +1,9 @@
 Changelog
 =========
 
+1.1.0
+------------
+- Add production config value. [Jonathan Kamau]
 
 1.0.0
 ------------
