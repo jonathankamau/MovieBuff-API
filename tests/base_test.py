@@ -13,7 +13,8 @@ class BaseTestCase(TestCase):
         self.app = create_app("testing")
         self.app_context = self.app.app_context()
         self.app_context.push()
-        self.remove_all()
+        self.remove_all_users()
+        self.remove_all_movies()
 
         self.client = self.app.test_client
 
@@ -27,10 +28,23 @@ class BaseTestCase(TestCase):
                                            data=json.dumps(self.register_data),
                                            content_type='application/json'
                                            )
+        self.login_data = {
+            'username': 'kamjon',
+            'password': 'kamjon123'
+        }
+        self.login = self.client().post('/api/user/login',
+                                        data=json.dumps(self.login_data),
+                                        content_type='application/json'
+                                        )
 
-    def remove_all(self):
+    def remove_all_users(self):
         users = User.query.all()
-        movies = FavouriteMovies.query.all()
 
         for user in users:
             user.remove()
+    
+    def remove_all_movies(self):
+        movies = FavouriteMovies.query.all()
+
+        for movie in movies:
+            movie.remove()
