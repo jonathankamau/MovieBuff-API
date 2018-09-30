@@ -47,6 +47,7 @@ class Production():
 env_configuration = {
     'development': Development,
     'testing': Testing,
+    'staging': Staging,
     'production': Production
 
 }
