@@ -1,6 +1,7 @@
 import json
 from tests.base_test import BaseTestCase
 
+
 class TestLogin(BaseTestCase):
     """Tests for the user endpoint."""
 
