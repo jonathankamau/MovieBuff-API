@@ -12,9 +12,7 @@ class TestLogin(BaseTestCase):
         
         self.assertEqual(self.login.status_code, 200)
 
-        response_message = json.loads(self.login.get_data(as_text=True))
-
         self.assertEqual('You have logged in successfully',
-                         response_message['message'],
+                         self.login_response['message'],
                          msg="User could not log in!"
                          )

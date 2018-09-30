@@ -19,7 +19,6 @@ class MyQueries(BaseQuery):
     def get_user(self, user_id):
         return self.filter(self.type.user_id == user_id)
 
-
 class User(db.Document):
     query_class = MyQueries
     user_id = db.StringField()
