@@ -62,6 +62,9 @@ class BaseTestCase(TestCase):
         self.get_favourite_movies = self.client().get('/api/movie/favourites',
                                                       headers=self.header
                                                       )
+        self.delete_movie = self.client().delete('/api/movie/delete?id=789',
+                                           headers=self.header
+                                           )
 
     def remove_all_users(self):
         users = User.query.all()
