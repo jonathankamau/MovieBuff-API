@@ -1,8 +1,8 @@
 from flask import Flask, jsonify
 from flask_cors import CORS
 from flask_restplus import Api
-from api.endpoints import (CreateAccount, UserLogin, MovieSearch, 
-                           AddMovie, ViewFavouritesList, DeleteMovie, 
+from api.endpoints import (CreateAccount, UserLogin, MovieSearch,
+                           AddMovie, ViewFavouritesList, DeleteMovie,
                            UpdateUserDetails)
 from api.utils.models import db
 
@@ -30,14 +30,16 @@ def create_app(environment):
     # enable cross origin resource sharing
     CORS(app)
 
-    api.add_resource(CreateAccount, "/api/user/register", endpoint="register")
-    api.add_resource(UserLogin, "/api/user/login", endpoint="login")
-    api.add_resource(MovieSearch, "/api/movie/search", endpoint="search")
-    api.add_resource(AddMovie, "/api/movie/add", endpoint="add")
+    api.add_resource(CreateAccount, "/api/v1/auth/register",
+                     endpoint="register")
+    api.add_resource(UserLogin, "/api/v1/auth/login", endpoint="login")
+    api.add_resource(MovieSearch, "/api/v1/movie/search", endpoint="search")
+    api.add_resource(AddMovie, "/api/v1/movie/add", endpoint="add")
     api.add_resource(ViewFavouritesList,
-                     "/api/movie/favourites", endpoint="favourites")
-    api.add_resource(DeleteMovie, "/api/movie/delete", endpoint="delete")
-    api.add_resource(UpdateUserDetails, "/api/user/update", endpoint="update")
+                     "/api/v1/movie/favourites", endpoint="favourites")
+    api.add_resource(DeleteMovie, "/api/v1/movie/delete", endpoint="delete")
+    api.add_resource(UpdateUserDetails,
+                     "/api/v1/user/update", endpoint="update")
 
     # handle default 404 exceptions
     @app.errorhandler(404)
