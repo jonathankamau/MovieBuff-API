@@ -4,6 +4,7 @@ from werkzeug.security import check_password_hash
 
 from api.utils import User, login_schema
 
+
 class UserLogin(Resource):
 
     def post(self):

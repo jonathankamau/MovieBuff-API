@@ -26,13 +26,19 @@ def create_app(environment):
 
     api = Api(
         app=app,
-        default='Api')
+        default='Api',
+        default_label="Available Endpoints",
+        title='MovieBuff API',
+        version='1.2.0',
+        description="""MovieBuff Api Endpoint Documentation 📚"""
+        )
     # enable cross origin resource sharing
     CORS(app)
 
     api.add_resource(CreateAccount, "/api/v1/auth/register",
                      endpoint="register")
     api.add_resource(UserLogin, "/api/v1/auth/login", endpoint="login")
+
     api.add_resource(MovieSearch, "/api/v1/movie/search", endpoint="search")
     api.add_resource(AddMovie, "/api/v1/movie/add", endpoint="add")
     api.add_resource(ViewFavouritesList,
