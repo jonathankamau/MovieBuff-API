@@ -1,6 +1,7 @@
 import json
 from tests.base_test import BaseTestCase
 
+
 class TestRegistration(BaseTestCase):
 
     def setUp(self):

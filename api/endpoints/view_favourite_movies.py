@@ -5,6 +5,7 @@ from flask_restplus import Resource
 from api.utils import token_required
 from api.utils import FavouriteMovies
 
+
 class ViewFavouritesList(Resource):
 
     @token_required
