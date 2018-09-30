@@ -106,8 +106,5 @@ venv.bak/
 #rdb files
 dump.rdb
 
-#requirements
-requirements.txt
-
 #pytest
 pytest.ini
