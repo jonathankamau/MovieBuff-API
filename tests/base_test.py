@@ -2,7 +2,7 @@ import json
 from datetime import datetime
 from unittest import TestCase
 from app import create_app
-from api.utils import User, FavouriteMovies, db
+from api.utils import User, FavouriteMovies
 
 
 class BaseTestCase(TestCase):
