@@ -1,7 +1,7 @@
 import asyncio
-from werkzeug.contrib.cache import RedisCache
+from werkzeug.contrib.cache import SimpleCache
 
-cache_content = RedisCache()
+cache_content = SimpleCache()
 
 
 def set_result_in_cache(search_result):
