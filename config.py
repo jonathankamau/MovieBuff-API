@@ -13,9 +13,8 @@ class Development():
 
     DEBUG = True
     DEVELOPMENT = True
-    POSTGRES_DBNAME = os.environ.get('POSTGRES_DBNAME')
-    POSTGRES_USER = os.environ.get('POSTGRES_USER')
-    POSTGRES_PASSWORD = os.environ.get('POSTGRES_PASSWORD')
+    SQLALCHEMY_DATABASE_URI = os.environ.get('LOCAL_DATABASE')
+    SQLALCHEMY_TRACK_MODIFICATIONS = True
 
 
 class Testing():
@@ -23,9 +22,8 @@ class Testing():
 
     DEBUG = True
     TESTING = True
-    POSTGRES_DBNAME = os.environ.get('POSTGRES_DBNAME_TEST')
-    POSTGRES_USER = os.environ.get('POSTGRES_USER_TEST')
-    POSTGRES_PASSWORD = os.environ.get('POSTGRES_PASSWORD_TEST')
+    SQLALCHEMY_DATABASE_URI = os.environ.get('TEST_DATABASE')
+    SQLALCHEMY_TRACK_MODIFICATIONS = True
 
 
 class Staging():
@@ -33,9 +31,8 @@ class Staging():
 
     DEBUG = True
     STAGING = True
-    POSTGRES_DBNAME = os.environ.get('POSTGRES_DBNAME')
-    POSTGRES_USER = os.environ.get('POSTGRES_USER')
-    POSTGRES_PASSWORD = os.environ.get('POSTGRES_PASSWORD')
+    SQLALCHEMY_DATABASE_URI = os.environ.get('STAGING_DATABASE')
+    SQLALCHEMY_TRACK_MODIFICATIONS = True
 
 
 class Production():
@@ -43,9 +40,7 @@ class Production():
 
     DEBUG = True
     PRODUCTION = True
-    POSTGRES_DBNAME = os.environ.get('POSTGRES_DBNAME')
-    POSTGRES_USER = os.environ.get('POSTGRES_USER')
-    POSTGRES_PASSWORD = os.environ.get('POSTGRES_PASSWORD')
+    SQLALCHEMY_DATABASE_URI = os.environ.get('PRODUCTION_DATABASE')
 
 
 env_configuration = {
