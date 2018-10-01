@@ -12,15 +12,13 @@ class DeleteMovie(Resource):
     def delete(self):
         movie_id = request.args.get('id', type=int)
         
-        selected_movie = FavouriteMovies.query.get_movie(
-                    g.current_user.user_id, movie_id).first()
+        selected_movie = FavouriteMovies.query.filter_by(
+                    user_id=g.current_user.user_id, 
+                    movie_id=movie_id).first_or_404()
 
         movie_name = selected_movie.movie_title
 
-        try:
-            selected_movie.remove()
-        except selected_movie.DocumentException:
-            return {"response": "Could not delete movie!"}, 400
+        selected_movie.delete()
 
         return {"response": "Movie deleted",
                 "Movie Title that has been deleted": movie_name}, 200

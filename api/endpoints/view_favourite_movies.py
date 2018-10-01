@@ -11,8 +11,8 @@ class ViewFavouritesList(Resource):
     @token_required
     def get(self):
         favourite_list = []
-        favourite_movies = FavouriteMovies.query.get_user(
-            g.current_user.user_id).all()
+        favourite_movies = FavouriteMovies.query.filter_by(
+            user_id=g.current_user.user_id).all()
 
         if favourite_movies:
             for movie in favourite_movies:

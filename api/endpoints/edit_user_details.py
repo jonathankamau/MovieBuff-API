@@ -10,7 +10,8 @@ class UpdateUserDetails(Resource):
     def put(self):
         user_details = request.get_json()
 
-        user = User.query.get_user(g.current_user.user_id).first()
+        user = User.query.filter_by(
+            user_id=g.current_user.user_id).first_or_404()
 
         user.username = user_details['username']
 

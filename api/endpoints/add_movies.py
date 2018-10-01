@@ -16,13 +16,12 @@ class AddMovie(Resource):
     def post(self):
         movie_selection = request.get_json()
         movie_list = get_data_from_cache()
-
+        
         for movie in movie_list:
-
             if (movie_selection['id'] == movie['id']):
-                existing_movie = FavouriteMovies.query.get_movie(
-                    g.current_user.user_id,
-                    movie['id']).first()
+                existing_movie = FavouriteMovies.query.filter_by(
+                    user_id=g.current_user.user_id,
+                    movie_id=movie['id']).first()
 
                 if existing_movie:
                     response = jsonify(
@@ -39,15 +38,11 @@ class AddMovie(Resource):
                             movie['release_date'], '%Y-%m-%d'),
                         overview=movie['overview'])
 
-                    try:
-                        new_movie.save()
-                    except new_movie.DocumentException:
-                        response = jsonify(
-                            {'message': 'Could not save new movie!'})
-                        response.status_code = 400
+                    new_movie.save()
 
-                    model_object = FavouriteMovies.query.get_movie(
-                        g.current_user.user_id, movie['id']).first()
+                    model_object = FavouriteMovies.query.filter_by(
+                        user_id=g.current_user.user_id, movie_id=movie['id']
+                        ).first()
 
                     response = jsonify({
                         'message': 'Movie added to favourites list!',

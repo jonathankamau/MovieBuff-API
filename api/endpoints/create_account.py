@@ -15,7 +15,7 @@ class CreateAccount(Resource):
         if errors:
             return jsonify(errors)
         else:
-            user = User.query.get_username(result['username']).first()
+            user = User.query.filter_by(username=result['username']).first()
 
             if user:
                 return {"message": "User already exists!"}, 400

@@ -14,7 +14,7 @@ class UserLogin(Resource):
         if errors:
             return jsonify(errors)
         else:
-            user = User.query.get_username(result['username']).first()
+            user = User.query.filter_by(username=result['username']).first()
             if check_password_hash(user.password, user_details['password']):
                 token = user.generate_token()
                 # gives message response
