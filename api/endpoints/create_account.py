@@ -1,4 +1,3 @@
-import uuid
 from flask import jsonify, request
 from flask_restplus import Resource
 from werkzeug.security import generate_password_hash
@@ -21,8 +20,7 @@ class CreateAccount(Resource):
             if user:
                 return {"message": "User already exists!"}, 400
             else:
-                new_user = User(user_id=str(uuid.uuid1()),
-                                firstname=result['first_name'],
+                new_user = User(firstname=result['first_name'],
                                 lastname=result['last_name'],
                                 username=result['username'],
                                 password=generate_password_hash(
