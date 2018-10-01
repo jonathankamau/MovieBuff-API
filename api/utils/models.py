@@ -1,31 +1,18 @@
 """Database file."""
 import os
-from flask_mongoalchemy import BaseQuery, MongoAlchemy
+from flask_sqlalchemy import SQLAlchemy
 from itsdangerous import (TimedJSONWebSignatureSerializer
                           as Serializer, BadSignature, SignatureExpired)
 
-db = MongoAlchemy()
+db = SQLAlchemy()
 
 
-class MyQueries(BaseQuery):
-
-    def get_username(self, user_name):
-        return self.filter(self.type.username == user_name)
-
-    def get_movie(self, user_id, movie_id):
-        return self.filter(self.type.user_id == user_id,
-                           self.type.movie_id == movie_id)
-
-    def get_user(self, user_id):
-        return self.filter(self.type.user_id == user_id)
-
-class User(db.Document):
-    query_class = MyQueries
-    user_id = db.StringField()
-    firstname = db.StringField()
-    lastname = db.StringField()
-    username = db.StringField()
-    password = db.StringField()
+class User(db.Model):
+    user_id = db.Column(db.String, nullable=False)
+    firstname = db.Column(db.String)
+    lastname = db.Column(db.String)
+    username = db.Column(db.String)
+    password = db.Column(db.String)
 
     def generate_token(self, expiration=6000):
         serial = Serializer(os.getenv('SECRET'), expires_in=expiration)
@@ -45,11 +32,10 @@ class User(db.Document):
         return user
 
 
-class FavouriteMovies(db.Document):
-    query_class = MyQueries
-    user_id = db.StringField()
-    movie_id = db.IntField()
-    movie_title = db.StringField()
-    popularity = db.FloatField()
-    release_date = db.DateTimeField()
-    overview = db.StringField()
+class FavouriteMovies(db.Model):
+    user_id = db.Column(db.String, nullable=False)
+    movie_id = db.Column(db.String)
+    movie_title = db.Column(db.String)
+    popularity = db.Column(db.String)
+    release_date = db.Column(db.String)
+    overview = db.Column(db.String)

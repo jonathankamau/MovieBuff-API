@@ -13,8 +13,9 @@ class Development():
 
     DEBUG = True
     DEVELOPMENT = True
-    MONGOALCHEMY_DATABASE = os.environ.get('MONGO_DBNAME')
-    MONGOALCHEMY_CONNECTION_STRING = os.environ.get('MONGO_URI')
+    POSTGRES_DBNAME = os.environ.get('POSTGRES_DBNAME')
+    POSTGRES_USER = os.environ.get('POSTGRES_USER')
+    POSTGRES_PASSWORD = os.environ.get('POSTGRES_PASSWORD')
 
 
 class Testing():
@@ -22,8 +23,9 @@ class Testing():
 
     DEBUG = True
     TESTING = True
-    MONGOALCHEMY_DATABASE = os.environ.get('TEST_MONGO_DBNAME')
-    MONGOALCHEMY_CONNECTION_STRING = os.environ.get('TEST_MONGO_URI')
+    POSTGRES_DBNAME = os.environ.get('POSTGRES_DBNAME_TEST')
+    POSTGRES_USER = os.environ.get('POSTGRES_USER_TEST')
+    POSTGRES_PASSWORD = os.environ.get('POSTGRES_PASSWORD_TEST')
 
 
 class Staging():
@@ -31,8 +33,9 @@ class Staging():
 
     DEBUG = True
     STAGING = True
-    MONGOALCHEMY_DATABASE = os.environ.get('MONGO_DBNAME')
-    MONGOALCHEMY_CONNECTION_STRING = os.environ.get('MONGO_URI')
+    POSTGRES_DBNAME = os.environ.get('POSTGRES_DBNAME')
+    POSTGRES_USER = os.environ.get('POSTGRES_USER')
+    POSTGRES_PASSWORD = os.environ.get('POSTGRES_PASSWORD')
 
 
 class Production():
@@ -40,8 +43,9 @@ class Production():
 
     DEBUG = True
     PRODUCTION = True
-    MONGOALCHEMY_DATABASE = os.environ.get('MONGO_DBNAME')
-    MONGOALCHEMY_CONNECTION_STRING = os.environ.get('MONGO_URI')
+    POSTGRES_DBNAME = os.environ.get('POSTGRES_DBNAME')
+    POSTGRES_USER = os.environ.get('POSTGRES_USER')
+    POSTGRES_PASSWORD = os.environ.get('POSTGRES_PASSWORD')
 
 
 env_configuration = {
