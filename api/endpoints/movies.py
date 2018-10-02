@@ -50,7 +50,7 @@ class Movies(Resource):
                     user_movie = FavouriteMovies(
                         user_id=g.current_user.id,
                         movie_id=existing_movie.id,
-                        ranking_number=0
+                        ranking_number=None
                     )
 
                     user_movie.save()
@@ -71,7 +71,7 @@ class Movies(Resource):
                     user_movie = FavouriteMovies(
                         user_id=g.current_user.id,
                         movie_id=new_movie.id,
-                        ranking_number=0
+                        ranking_number=None
                     )
                     user_movie.save()
                     print(user_movie.save())

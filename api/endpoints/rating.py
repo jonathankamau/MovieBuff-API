@@ -42,6 +42,38 @@ class UserMovieRatings(Resource):
                 print(rating.save())
 
                 response = jsonify({
+                        'message': 'rating added successfully!'
+                        })
+
+                response.status_code = 201
+            else:
+                response = jsonify({
+                        'message': 'rating could not be added!'
+                        })
+
+                response.status_code = 400
+        
+        return response
+
+    @token_required
+    def put(self):
+        movie_request = request.get_json()
+
+        user_movie_details = FavouriteMovies.query.filter_by(
+            user_id=g.current_user.id).all()
+    
+        for movie in user_movie_details:
+            print(movie.user_id)
+            if (movie.movie_details.movie_id == movie_request['id']):
+             
+                movie.ranking_number = movie_request['rating']
+
+                print(movie.movie_details.movie_id)
+
+                movie.save()
+                print(movie.save())
+
+                response = jsonify({
                         'message': 'rating updated successfully!'
                         })
 
@@ -52,19 +84,35 @@ class UserMovieRatings(Resource):
                         })
 
                 response.status_code = 400
-        
+    
+        return response
+    
+    @token_required
+    def delete(self):
+        movie_request = request.get_json()
+
+        user_movie_details = FavouriteMovies.query.filter_by(
+            user_id=g.current_user.id).all()
+    
+        for movie in user_movie_details:
+
+            if (movie.movie_details.movie_id == movie_request['id']):
+             
+                movie.ranking_number = None
+
+                movie.save()
+
+                response = jsonify({
+                        'message': 'rating has been removed!'
+                        })
+
+                response.status_code = 200
+            else:
+                response = jsonify({
+                        'message': 'rating could not be removed!'
+                        })
+
+                response.status_code = 400
+    
         return response
 
-    @token_required
-    def put(self):
-        movie = request.get_json()
-
-        movie_details = FavouriteMovies.query.filter_by(
-            user_id=g.current_user.user_id,
-            movie_id=movie['movie_id']).first_or_404()
-
-        movie_details.rating = movie['rating']
-
-        movie_details.save()
-
-        return {"response": "Movie rating updated successfully!"}, 201
