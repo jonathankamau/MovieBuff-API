@@ -52,7 +52,7 @@ class BaseTestCase(TestCase):
                         user_id=self.user_id,
                         movie_id=789,
                         movie_title='Titanic',
-                        popularity=91.27,
+                        vote_average=91.27,
                         release_date=datetime.strptime(
                             '2002-07-03', '%Y-%m-%d'),
                         overview='Ship sinking'

@@ -11,5 +11,15 @@ migrate = Migrate(movie_app, db)
 
 manager.add_command('db', MigrateCommand)
 
+@manager.command
+def drop_database():
+    try:
+        db.drop_all()
+        print('Dropped all databases successfully!')
+    except Exception:
+        db.session.rollback()
+        print('DB drop failed')
+
+
 if __name__ == "__main__":
     manager.run()
