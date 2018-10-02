@@ -36,10 +36,7 @@ class UserMovieRatings(Resource):
                 
                 rating.ranking_number = movie['rating']
 
-                print(rating.movie_details.movie_id)
-
                 rating.save()
-                print(rating.save())
 
                 response = jsonify({
                         'message': 'rating added successfully!'
@@ -63,15 +60,11 @@ class UserMovieRatings(Resource):
             user_id=g.current_user.id).all()
     
         for movie in user_movie_details:
-            print(movie.user_id)
+
             if (movie.movie_details.movie_id == movie_request['id']):
-             
                 movie.ranking_number = movie_request['rating']
 
-                print(movie.movie_details.movie_id)
-
                 movie.save()
-                print(movie.save())
 
                 response = jsonify({
                         'message': 'rating updated successfully!'

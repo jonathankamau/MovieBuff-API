@@ -39,7 +39,6 @@ class Categories(Resource):
         category_details = MovieCategory.query.filter_by(
             category_name=category['old_category'].lower()).first()
 
-        print(category_details)
         if category_details:
             category_details.category_name = category['new_category'].lower()
             category_details.save()

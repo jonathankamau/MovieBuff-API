@@ -38,8 +38,7 @@ class Base(db.Model):
             db.session.delete(self)
             db.session.commit()
             deleted = True
-        except Exception as e:
-            print(e)
+        except Exception:
             db.session.rollback()
             deleted = False
         

@@ -74,7 +74,6 @@ class Movies(Resource):
                         ranking_number=None
                     )
                     user_movie.save()
-                    print(user_movie.save())
 
                     return {"message": "New movie added to both movies and favourites list!"}, 200
 
@@ -87,10 +86,8 @@ class Movies(Resource):
                     user_id=g.current_user.id).all()
 
         for movie in favourite_movies:
-            print(movie.movie_details.movie_id)
             
             if movie.movie_details.movie_id == movie_id:
-                print(movie.movie_details.movie_id)
 
                 movie_name = movie.movie_details.movie_title
 
