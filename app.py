@@ -38,7 +38,9 @@ def create_app(environment):
                      endpoint="user")
     api.add_resource(Movies, "/api/v1/movie", endpoint="movie")
 
-    api.add_resource(Categories, "/api/v1/movie/category", endpoint="category")
+    api.add_resource(Categories, "/api/v1/movie/category",
+                     "/api/v1/movie/category/<string:category_id>",
+                     endpoint="category")
     api.add_resource(UserMovieRatings, "/api/v1/movie/ratings",
                      endpoint="ratings")
     api.add_resource(Search,

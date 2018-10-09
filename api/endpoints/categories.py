@@ -48,11 +48,10 @@ class Categories(Resource):
 
             return {"response": "Could not update category!"}, 400
 
-    def delete(self):
-        category_name = request.get_json()
+    def delete(self, category_id):
         
         selected_category = MovieCategory.query.filter_by(
-                    category_name=category_name['category']).first()
+                    id=category_id).first()
 
         name = selected_category.category_name
 
