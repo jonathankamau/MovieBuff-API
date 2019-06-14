@@ -1,9 +1,9 @@
 from flask import g, jsonify, request
 from functools import wraps
 
-from api.utils.models import User
+from api.utils.models import UserDetails
 
-user_details = User()
+user_details = UserDetails()
 
 
 def token_required(f):

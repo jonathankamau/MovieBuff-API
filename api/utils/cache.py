@@ -1,7 +1,7 @@
 import asyncio
 from werkzeug.contrib.cache import SimpleCache
 
-cache_content = SimpleCache()
+cache_content = SimpleCache(default_timeout=20000)
 
 
 def set_result_in_cache(search_result):
