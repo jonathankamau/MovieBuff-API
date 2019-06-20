@@ -28,23 +28,23 @@ def create_app(environment):
         default='Api',
         default_label="Available Endpoints",
         title='MovieBuff API',
-        version='1.2.0',
+        version='2.0.0',
         description="""MovieBuff Api Endpoint Documentation 📚"""
         )
     # enable cross origin resource sharing
     CORS(app)
 
-    api.add_resource(Users, "/api/v1/auth/<string:operation>",
+    api.add_resource(Users, "/api/v2/auth/<string:operation>",
                      endpoint="user")
-    api.add_resource(Movies, "/api/v1/movie", endpoint="movie")
+    api.add_resource(Movies, "/api/v2/movie", endpoint="movie")
 
-    api.add_resource(Categories, "/api/v1/movie/category",
-                     "/api/v1/movie/category/<string:category_id>",
+    api.add_resource(Categories, "/api/v2/movie/category",
+                     "/api/v2/movie/category/<string:category_id>",
                      endpoint="category")
-    api.add_resource(UserMovieRatings, "/api/v1/movie/ratings",
+    api.add_resource(UserMovieRatings, "/api/v2/movie/ratings",
                      endpoint="ratings")
     api.add_resource(Search,
-                     "/api/v1/movie/search", endpoint="search")
+                     "/api/v2/movie/search", endpoint="search")
 
     # handle default 404 exceptions
     @app.errorhandler(404)
