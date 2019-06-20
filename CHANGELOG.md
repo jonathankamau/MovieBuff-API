@@ -1,6 +1,31 @@
 Changelog
 =========
 
+2.0.0
+------------
+<li> <a href="http://github.com/jonathankamau/MovieBuff-API/commit/915fd2448b2b02843282df109c7fae82bb5bd05a">view commit &bull;</a> ch-add-staging-env-to-config  Author: Jonathan Kamau, Commiter: Jonathan Kamau</li>
+<li> <a href="http://github.com/jonathankamau/MovieBuff-API/commit/f891058daf5faca099b9bde94f369892c557a7dd">view commit &bull;</a> add new api details  Author: Jonathan Kamau, Commiter: Jonathan Kamau</li>
+<li> <a href="http://github.com/jonathankamau/MovieBuff-API/commit/2617de729266927ceec64e22204668e3929188b0">view commit &bull;</a> make modifications to gitignore  Author: Jonathan Kamau, Commiter: Jonathan Kamau</li>
+<li> <a href="http://github.com/jonathankamau/MovieBuff-API/commit/661df608c6dec0b77e3fd69da480070e05c3fcb5">view commit &bull;</a> edit caching solution  Author: Jonathan Kamau, Commiter: Jonathan Kamau</li>
+<li> <a href="http://github.com/jonathankamau/MovieBuff-API/commit/95093ad5f07619574469658d58d41da6175d9a8d">view commit &bull;</a> chore(database): add configurations for postgres  Author: Jonathan Kamau, Commiter: Jonathan Kamau</li>
+<li> <a href="http://github.com/jonathankamau/MovieBuff-API/commit/33fc4ba6729029edbf1ddd5b0cabe5e9c83c569f">view commit &bull;</a> modify the database fields in sqlalchemy  Author: Jonathan Kamau, Commiter: Jonathan Kamau</li>
+<li> <a href="http://github.com/jonathankamau/MovieBuff-API/commit/f056903ce71c283d445ce2a6b121831664e3b87d">view commit &bull;</a> chore(database): add sqlalchemy configs and migrate command  Author: Jonathan Kamau, Commiter: Jonathan Kamau</li>
+<li> <a href="http://github.com/jonathankamau/MovieBuff-API/commit/57dc235fec767f3bd4452f07e7ccafdc235188da">view commit &bull;</a> chore(database): refactor code to include sqlalchemy query functions and modify the database model - add command to migrate the database as well.
+ Author: Jonathan Kamau, Commiter: Jonathan Kamau</li>
+<li> <a href="http://github.com/jonathankamau/MovieBuff-API/commit/66ecb8594b4d705125c808938123db732b7c4099">view commit &bull;</a> add ratings and categories endpoints and refactor existing ones  Author: Jonathan Kamau, Commiter: Jonathan Kamau</li>
+<li> <a href="http://github.com/jonathankamau/MovieBuff-API/commit/d1f09a5296f8b42a6dcdf56291d040feb8fc4567">view commit &bull;</a> feat(endpoints): add the categories and ratings endpoints and refactor the existing ones [Finishes #160940895]
+ Author: Jonathan Kamau, Commiter: Jonathan Kamau</li>
+<li> <a href="http://github.com/jonathankamau/MovieBuff-API/commit/6f1ee0ce8c1bd50926a0c58ee91a60ca82bfab19">view commit &bull;</a> remove all print statements used while debugging  Author: Jonathan Kamau, Commiter: Jonathan Kamau</li>
+<li> <a href="http://github.com/jonathankamau/MovieBuff-API/commit/b8dc601dc6d2f851048ff63aded685e90ff2aeae">view commit &bull;</a> add functionality to delete category by its id  Author: Jonathan Kamau, Commiter: Jonathan Kamau</li>
+<li> <a href="http://github.com/jonathankamau/MovieBuff-API/commit/c7c5b3dfca82861e3eb5f785e73feab471c9a5a7">view commit &bull;</a> chore(dependecies): update dependecies to meet security requirements  Author: Jonathan Kamau, Commiter: Jonathan Kamau</li>
+<li> <a href="http://github.com/jonathankamau/MovieBuff-API/commit/79db3fb2bbf968882a8cb7bd15072c31000992fe">view commit &bull;</a> chore(api-version): update the api version The current API version is still 1.2.0 and doesn't speak
+to the changes made in the aftermath.
+
+This fixes that by updating the version to v2.
+
+[Finishes ##166822466]
+ Author: Jonathan Kamau, Commiter: Jonathan Kamau</li>
+
 1.1.0
 ------------
 - Add production config value. [Jonathan Kamau]

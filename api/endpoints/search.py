@@ -2,11 +2,11 @@ import os
 import requests
 from flask import g, jsonify, request
 from flask_restplus import Resource
-from api.utils import token_required, set_result_in_cache, User
+from api.utils import token_required, set_result_in_cache, UserDetails
 
 
 
-class MovieSearch(Resource):
+class Search(Resource):
 
     @token_required
     def get(self):

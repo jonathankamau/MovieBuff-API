@@ -108,3 +108,9 @@ dump.rdb
 
 #pytest
 pytest.ini
+
+# vscode
+.vscode/
+
+# migrations
+migrations
