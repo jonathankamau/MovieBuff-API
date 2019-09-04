@@ -14,7 +14,7 @@ An API that allows users to create, view and update their list of favourite movi
 | `/api/v1/user/update` | `PUT` |  Update the logged in user's username |
 
 # Requirements
-Python (3.6)
+Python (3.7)
 Flask (1.0.2)
 
 # Installation
