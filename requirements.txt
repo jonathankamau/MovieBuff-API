@@ -28,7 +28,7 @@ mongo==0.2.0
 MongoAlchemy==0.19
 more-itertools==4.3.0
 pluggy==0.7.1
-py==1.6.0
+py==1.10.0
 pylint==2.1.1
 pymongo==2.8.1
 pytest==3.8.1
